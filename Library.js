@@ -14,13 +14,13 @@ function dynamicSort(property) {
 
 /**
  * For this function you need the dynamicSort function as well
- * Ordered array max to min in order of the properties given. Bigger value has the first property
- * @param {array} arguments 
+ * Ordered array max to min based on the properties given.
+ * @param {array} properties 
  * @returns The sort parameter
  * @usage <array>.sort(dynamicSortMultiple(<propertiesAsArray>))
  */
-function dynamicSortMultiple(arguments) {
-    let props = arguments;
+function dynamicSortMultiple(properties) {
+    let props = properties;
     return function (obj1, obj2) {
         let i = 0, result = 0, numberOfProperties = props.length;
         while(result === 0 && i < numberOfProperties) {
@@ -35,21 +35,31 @@ function dynamicSortMultiple(arguments) {
  * Sort the given array DESC
  * @param {array} arrayToSort 
  * @param {string} property 
- * @returns The sorted Array. Change a for b in the localeCompare function, do change from DESC to ASC
+ * @returns The Array sorted DESC.
  */
-function sortTheArray(arrayToSort, property) {
+function sortArrayBasedOnElementPropertyDESC(arrayToSort, property) {
     return arrayToSort.sort((a, b) => b[property].localeCompare(a[property]));
 }
 
 /**
- * You can give dates or integers. Use it to proove if a time or a number is between the other two parameters
- * @param {date} timeToProove 
- * @param {data} fromTime 
- * @param {date} toTime 
- * @returns true if timeToProove is between the other times, or false if not
+ * Sort the given array ASC
+ * @param {array} arrayToSort 
+ * @param {string} property 
+ * @returns The Array sorted ASC.
  */
-function betweenSpecifiedTime(timeToProove, fromTime, toTime) {
-    let between = false;
-    if (timeToProove > fromTime && timeToProove < toTime) between = true
-    return between
+function sortArrayBasedOnElementPropertyASC(arrayToSort, property) {
+    return arrayToSort.sort((a, b) => a[property].localeCompare(b[property]));
+}
+
+/**
+ * You can give dates or integers. Use it to proove if a time or a number is between the other two
+ * @param {date} valueToProve 
+ * @param {data} firstValue 
+ * @param {date} secondValue 
+ * @returns true if valueToProve is between the other, false otherwise
+ */
+function checkIfFirstValueIsBetweenSecondAndThirdValue(valueToProve, firstValue, secondValue) {
+    let isBetweenOrNot = false;
+    if (valueToProve > firstValue && valueToProve < secondValue) isBetweenOrNot = true
+    return isBetweenOrNot
 }
