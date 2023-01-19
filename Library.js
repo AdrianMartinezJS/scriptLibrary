@@ -63,3 +63,16 @@ function checkIfFirstValueIsBetweenSecondAndThirdValue(valueToProve, firstValue,
     if (valueToProve > firstValue && valueToProve < secondValue) isBetweenOrNot = true
     return isBetweenOrNot
 }
+
+/**
+ * 
+ * @returns a hexadecimal Color value
+ */
+function generateHexadecimalColor() {
+    let hexadecimalPosibilities = '0123456789ABCDEF'.split('');
+    let hexadecimalString = '#';
+    for (var i = 0; i < 6; i++ ) {
+        hexadecimalString += hexadecimalPosibilities[Math.floor(Math.random() * 16)];
+    }
+    return hexadecimalString;
+}
